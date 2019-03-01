@@ -1,0 +1,12 @@
+button{
+    float: right;
+}
+.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: gray;
+}
+.mx {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}

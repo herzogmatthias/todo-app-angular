@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<main>
+  <form [formGroup]="this.addForm" (ngSubmit)="submit()" >
+      <mat-grid-list cols="3" rowHeight="4:1">
+          <mat-grid-tile><mat-form-field>
+              <input matInput placeholder="Enter your email" formControlName="email" required>
+              <mat-error *ngIf="this.addForm.get('email').invalid">{{getEmailErrorMessage()}}</mat-error>
+            </mat-form-field></mat-grid-tile>
+          <mat-grid-tile><mat-form-field>
+              <input matInput placeholder="Enter your firstname" formControlName="firstname" required>
+              <mat-error *ngIf="this.addForm.get('firstname').invalid">You must enter a value</mat-error>
+            </mat-form-field></mat-grid-tile>
+          <mat-grid-tile><mat-form-field>
+              <input matInput placeholder="Enter your lastname" formControlName="lastname" required>
+              <mat-error *ngIf="this.addForm.get('lastname').invalid">You must enter a value</mat-error>
+            </mat-form-field></mat-grid-tile>
+          <mat-grid-tile><mat-form-field>
+              <textarea matInput placeholder="Description" formControlName="description" required></textarea>
+              <mat-error *ngIf="this.addForm.get('description').invalid">You must enter a value</mat-error>
+            </mat-form-field></mat-grid-tile>
+          <mat-grid-tile><mat-form-field>
+              <input matInput placeholder="Title" formControlName="title" required>
+              <mat-error *ngIf="this.addForm.get('title').invalid">You must enter a value</mat-error>
+            </mat-form-field></mat-grid-tile>
+          <mat-grid-tile><mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date" required>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="this.addForm.get('date').invalid">You must enter a value</mat-error>
+            </mat-form-field></mat-grid-tile>
+        </mat-grid-list>
+        <button mat-raised-button color="primary" [class.disabled]="this.addForm.invalid">Submit</button>
+  </form>
+  <div></div>
+  <mat-divider class="mx"></mat-divider>
+  <mat-list>
+      <app-list-item (deleteEvent)="delete($event)" [allAppointments]="this.allAppointments"></app-list-item>
+    </mat-list>
+    
+</main>

@@ -1,0 +1,14 @@
+<mat-list-item *ngFor="let appointment of allAppointments" class="mat-elevation-z2">
+    <button mat-icon-button (click)="redirect(appointment.id)">
+        <mat-icon>info</mat-icon>
+     </button>
+     <button mat-icon-button (click)="delete(appointment.id)">
+        <mat-icon>delete</mat-icon>
+     </button>
+        <h3 matLine> {{appointment.title}} </h3>
+        <p matLine>
+          <span> {{appointment.email}} </span>
+          <span class="demo-2"> -- {{appointment.firstname}} {{appointment.lastname}}</span>
+        </p>
+    
+</mat-list-item>

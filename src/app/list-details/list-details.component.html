@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+<main>
+  <h1 class="text-center">{{this.selectedAppointment.title}}</h1>
+  <mat-divider></mat-divider>
+  <mat-grid-list cols="2" rowHeight="4:1">
+      <mat-grid-tile><mat-icon>account_circle</mat-icon><h3>{{this.selectedAppointment.firstname}} {{this.selectedAppointment.lastname}}</h3></mat-grid-tile>
+      <mat-grid-tile><mat-icon>email</mat-icon><h3>{{this.selectedAppointment.email}}</h3></mat-grid-tile>
+      <mat-grid-tile><mat-icon>description</mat-icon><h3>{{this.selectedAppointment.description}}</h3></mat-grid-tile>
+      <mat-grid-tile><mat-icon>alarm</mat-icon><h3>{{this.selectedAppointment.date | date:'dd. LLLL yyyy': '' : 'de-AT' }}</h3></mat-grid-tile>
+  </mat-grid-list>
+</main>
